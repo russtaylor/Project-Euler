@@ -13,8 +13,10 @@ termcalc = 11
 
 while termcalc < (math.ceil(math.sqrt(number))):
 	
-	for primes 
-		
+	for prime in primes:
+        if termcalc % prime == 0:
+            continue
+        
 	term0 = term1
 	term1 = term2
 	
