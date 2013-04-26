@@ -11,7 +11,7 @@ number = 600851475143
 primes = array([2,3,5,7])
 termcalc = 11
 
-while termcalc < (number / 2):
+while termcalc < (math.ceil(math.sqrt(number))):
 	
 	for primes 
 		
