@@ -4,7 +4,7 @@
 # http://projecteuler.net
 # Problem 3
 
-# @author Russ Taylor <russ@russ-taylor.com>
+# @author Russ Taylor <russ@russt.me>
 # @version 2011-06-12
 
 import math

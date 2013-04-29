@@ -5,7 +5,7 @@
 # http://projecteuler.net
 # Problem 1
 
-# @author Russ Taylor <russ@russ-taylor.com>
+# @author Russ Taylor <russ@russt.me>
 # @version 2011-06-09
 
 sum = 0
