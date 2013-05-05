@@ -9,46 +9,23 @@
 
 import math
 
-def primesTo(limit, primeList):
-    number = primeList[-1]
-    while number < limit:
-        isPrime = True
-
-        for prime in primeList:
-            if number % prime == 0:
-                isPrime = False
-                break
-
-        if isPrime == True:
-            primeList.append(number)
-
-        number += 2
-    return primeList
-
-def calcNumberOfDivisors(number, primeList):
-    primes = primesTo(number, primeList)
+def calcNumberOfDivisors(number):
     divisors = [1,number]
-    for prime in primeList:
-        if number % prime == 0:
-            divisors.append(prime)
-            count = 2
-            while (count * prime) < number:
-                if number % (count * prime) == 0:
-                    divisors.append(count * prime)
-                count += 1
-    return set(divisors), primeList
+    for x in xrange(2, int(math.sqrt(number))):
+        divisor, remainder = divmod(number, x)
+        if remainder == 0:
+            divisors.append(x)
+            divisors.append(divisor)
+    return len(divisors)
 
-primes = [2,3,5,7]
 currentNumber = 0
 currentSum = 0
 numDivisors = 0
 
-while numDivisors <= 500:
+while 500 > numDivisors:
     currentNumber += 1
     currentSum += currentNumber
-    if currentSum > 10000000:
-        divisors, primes = calcNumberOfDivisors(currentSum, primes)
-        print numDivisors
-        numDivisors = len(divisors)
+    if currentSum:
+        numDivisors = calcNumberOfDivisors(currentSum)
 
 print currentSum
