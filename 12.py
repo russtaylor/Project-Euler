@@ -9,45 +9,46 @@
 
 import math
 
-def calcNumberOfDivisors(number):
-    numberOfDivisors = 0
-    currentDivisor = 0
-    while currentDivisor <= (number / 2):
-        currentDivisor += 1
-        if number % currentDivisor == 0:
-            numberOfDivisors += 1
-    return numberOfDivisors
+def primesTo(limit, primeList):
+    number = primeList[-1]
+    while number < limit:
+        isPrime = True
 
+        for prime in primeList:
+            if number % prime == 0:
+                isPrime = False
+                break
+
+        if isPrime == True:
+            primeList.append(number)
+
+        number += 2
+    return primeList
+
+def calcNumberOfDivisors(number, primeList):
+    primes = primesTo(number, primeList)
+    divisors = [1,number]
+    for prime in primeList:
+        if number % prime == 0:
+            divisors.append(prime)
+            count = 2
+            while (count * prime) < number:
+                if number % (count * prime) == 0:
+                    divisors.append(count * prime)
+                count += 1
+    return set(divisors), primeList
+
+primes = [2,3,5,7]
 currentNumber = 0
 currentSum = 0
 numDivisors = 0
 
-while numDivisors < 500:
+while numDivisors <= 500:
     currentNumber += 1
     currentSum += currentNumber
     if currentSum > 10000000:
-        numDivisors = calcNumberOfDivisors(currentSum)
+        divisors, primes = calcNumberOfDivisors(currentSum, primes)
         print numDivisors
-
-while termcalc < (math.ceil(math.sqrt(number))):
-    isPrime = True
-    
-    termcalcSqrt = math.sqrt(termcalc)
-    
-    for prime in primes:
-        if prime > termcalcSqrt:
-            break
-        if termcalc % prime == 0:
-            isPrime = False
-            break
-        
-    if isPrime == True:
-        primes.append(termcalc)
-        if number % termcalc == 0:
-            factors.append(termcalc)
-
-    termcalc += 2
-    
-print 'factors:', factors
+        numDivisors = len(divisors)
 
 print currentSum
