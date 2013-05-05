@@ -14,7 +14,6 @@ primes = [2,3,5,7]
 factors = []
 termcalc = 11
 
-# math.ceil(math.sqrt(number))
 while termcalc < (math.ceil(math.sqrt(number))):
     
     isPrime = True

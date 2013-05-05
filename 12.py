@@ -1,4 +1,4 @@
-# Calculates the first triangular number.
+# Calculates the first triangular number with 500 or more factors.
 
 # Problem set from Project Euler
 # http://projecteuler.net
@@ -25,7 +25,29 @@ numDivisors = 0
 while numDivisors < 500:
     currentNumber += 1
     currentSum += currentNumber
-    if currentNumber > 100000:
-        numDivisors = calcNumberOfDivisors(currentNumber)
+    if currentSum > 10000000:
+        numDivisors = calcNumberOfDivisors(currentSum)
+        print numDivisors
 
-print currentNumber
+while termcalc < (math.ceil(math.sqrt(number))):
+    isPrime = True
+    
+    termcalcSqrt = math.sqrt(termcalc)
+    
+    for prime in primes:
+        if prime > termcalcSqrt:
+            break
+        if termcalc % prime == 0:
+            isPrime = False
+            break
+        
+    if isPrime == True:
+        primes.append(termcalc)
+        if number % termcalc == 0:
+            factors.append(termcalc)
+
+    termcalc += 2
+    
+print 'factors:', factors
+
+print currentSum
