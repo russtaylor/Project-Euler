@@ -13,12 +13,11 @@ max = 20
 gridSize = max + 1
 grid = [[0] * gridSize] * gridSize
 for i in range(max + 1):
-    print "i:", i
-    for j in range (i):
+    for j in range(i + 1):
         if j == 0:
             grid[i][j] = 1
-        elif len(grid[i-1]) < j:
-            grid[i][j] = grid[i][j-1] * 2
+        elif j == (i):
+            grid[i][j] = grid[i-1][j-1] * 2
         else:
             grid[i][j] = grid[i-1][j] + grid[i][j-1]
-print grid
+print grid[max][max]
