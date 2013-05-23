@@ -9,17 +9,39 @@ Problem 17
 @version 2013-05-21
 """
 
-numberNames = {
-    1: "one",
-    2: "two",
-    3: "three",
-    4: "four",
-    5: "five",
-    6: "six",
-    7: "seven",
-    8: "eight",
-    9: "nine",
-    10: "ten",
-    11: "eleven",
-    12: "twelve"
+andLength = 3
+numberLengths = {
+    1: 3,
+    2: 3,
+    3: 5,
+    4: 4,
+    5: 4,
+    6: 3,
+    7: 5,
+    8: 5,
+    9: 4,
+    10: 3,
+    11: 6,
+    12: 6,
+    13: 8,
+    14: 8,
+    15: 7,
+    16: 7,
+    17: 9,
+    18: 8,
+    19: 8,
+    20: 6,
+    30: 6,
+    40: 5,
+    50: 5,
+    60: 5,
+    70: 7,
+    80: 6,
+    90: 6,
+    100: 7,
+    1000: 8
 }
+
+letterCount = 0
+for i in range(1,1001):
+    letterCount += countForNumber(i)
