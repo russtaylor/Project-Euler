@@ -42,6 +42,13 @@ numberLengths = {
     1000: 8
 }
 
+def countForNumber(number):
+    stringNum = str(number)
+    if len(stringNum) == 1:
+        return numberLengths[number]
+    elif len(stringNum) == 2:
+        if(numberLengths[number])
+
 letterCount = 0
 for i in range(1,1001):
     letterCount += countForNumber(i)
