@@ -9,6 +9,18 @@ Problem 17
 @version 2013-05-21
 """
 
+def countForNumber(num):
+    numString = str(num)
+    if len(numString) == 1:
+        return numberLengths[num]
+    elif len(numString) == 2:
+        if num < 20 or (num % 10) == 0:
+            return numberLengths[num]
+        else:
+            return 0 # fix this
+    else: 
+        return 0
+
 andLength = 3
 numberLengths = {
     1: 3,
