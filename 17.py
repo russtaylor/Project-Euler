@@ -9,6 +9,8 @@ Problem 17
 @version 2013-05-21
 """
 
+import math
+
 def countForNumber(num):
     numString = str(num)
     if len(numString) == 1:
@@ -17,7 +19,9 @@ def countForNumber(num):
         if num < 20 or (num % 10) == 0:
             return numberLengths[num]
         else:
-            return 0 # fix this
+            letterCount = numberLengths[math.floor(num % 10) * 10]
+            letterCount += countForNumber(int(numString[1]))
+            return letterCount
     else: 
         return 0
 
@@ -54,13 +58,8 @@ numberLengths = {
     1000: 8
 }
 
-def countForNumber(number):
-    stringNum = str(number)
-    if len(stringNum) == 1:
-        return numberLengths[number]
-    elif len(stringNum) == 2:
-        if(numberLengths[number])
-
 letterCount = 0
 for i in range(1,1001):
     letterCount += countForNumber(i)
+
+print letterCount
