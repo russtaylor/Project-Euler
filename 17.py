@@ -71,7 +71,6 @@ numberLengths = {
 
 letterCount = 0
 for i in range(1,1001):
-  print str(i) + ": " + str(countForNumber(i))
   letterCount += countForNumber(i)
 
 print letterCount
