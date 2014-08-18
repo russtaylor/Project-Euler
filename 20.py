@@ -1,5 +1,5 @@
 """
-Calculates the sum of the digits of 100!
+Calculates the sum of the digits of 100! (that being 100 * 99 * 98 ...)
 
 Problem set from Project Euler
 http://projecteuler.net
