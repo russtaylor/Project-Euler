@@ -10,17 +10,13 @@ Problem 19
 @version 2014-08-20
 """
 
-from datetime import *
-from dateutil.relativedelta import relativedelta
-
-startDate = date(1901, 1, 1)
-endDate = date(2000, 12, 31)
+import datetime
 
 sundayCount = 0
 
-while startDate < endDate:
-  if(startDate.weekday() == 6):
-    sundayCount = sundayCount + 1
-  startDate = startDate + relativedelta(months=+1)
+for i in range(1901, 2001):
+  for j in range(1, 13):
+    if(datetime.date(i, j, 1).weekday() == 6):
+      sundayCount += 1
 
 print sundayCount
