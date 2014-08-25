@@ -1,11 +1,13 @@
-# Calculates the first triangular number with 500 or more factors.
+"""
+Calculates the first triangular number with 500 or more factors.
 
-# Problem set from Project Euler
-# http://projecteuler.net
-# Problem 12
+Problem set from Project Euler
+http://projecteuler.net
+Problem 12
 
-# @author Russ Taylor <russ@russt.me>
-# @version 2013-05-03
+@author Russ Taylor <russ@russt.me>
+@version 2013-05-03
+"""
 
 import math
 

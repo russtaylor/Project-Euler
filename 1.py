@@ -1,12 +1,14 @@
-# Calculates the sum of all natural numbers below
-# 1000 that are divisible by 3 or 5
+"""
+Calculates the sum of all natural numbers below 1000 that are divisible by 3 or
+5
 
-# Problem set from Project Euler
-# http://projecteuler.net
-# Problem 1
+Problem set from Project Euler
+http://projecteuler.net
+Problem 1
 
-# @author Russ Taylor <russ@russt.me>
-# @version 2011-06-09
+@author Russ Taylor <russ@russt.me>
+@version 2011-06-09
+"""
 
 sum = 0
 

@@ -1,11 +1,13 @@
-# Calculates the first ten digits of the sum of the numbers below.
+"""
+Calculates the first ten digits of the sum of the numbers below.
 
-# Problem set from Project Euler
-# http://projecteuler.net
-# Problem 13
+Problem set from Project Euler
+http://projecteuler.net
+Problem 13
 
-# @author Russ Taylor <russ@russt.me>
-# @version 2013-05-05
+@author Russ Taylor <russ@russt.me>
+@version 2013-05-05
+"""
 
 numbers = [
     37107287533902102798797998220837590246510135740250,

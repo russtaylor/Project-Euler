@@ -1,5 +1,6 @@
 """
-Calculates the number of letters used in writing all the numbers from 1-1000 in words.
+Calculates the number of letters used in writing all the numbers from 1-1000 in
+words.
 
 Problem set from Project Euler
 http://projecteuler.net

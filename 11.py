@@ -1,11 +1,13 @@
-# Calculates the largest product of 4 adjacent numbers in one direction in the grid specified below.
+"""
+Calculates the largest product of 4 adjacent numbers in one direction in the grid specified below.
 
-# Problem set from Project Euler
-# http://projecteuler.net
-# Problem 11
+Problem set from Project Euler
+http://projecteuler.net
+Problem 11
 
-# @author Russ Taylor <russ@russt.me>
-# @version 2013-05-02
+@author Russ Taylor <russ@russt.me>
+@version 2013-05-02
+"""
 
 import math
 

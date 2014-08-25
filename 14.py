@@ -1,11 +1,13 @@
-# Calculates the largest Collatz sequence under 1,000,000
+"""
+Calculates the largest Collatz sequence under 1,000,000
 
-# Problem set from Project Euler
-# http://projecteuler.net
-# Problem 14
+Problem set from Project Euler
+http://projecteuler.net
+Problem 14
 
-# @author Russ Taylor <russ@russt.me>
-# @version 2013-05-05
+@author Russ Taylor <russ@russt.me>
+@version 2013-05-05
+"""
 
 largestSequenceNumber = 0
 largestSequenceCount = 0

@@ -1,11 +1,13 @@
-# Calculates the largest prime factor of 600,851,475,143
+"""
+Calculates the largest prime factor of 600,851,475,143
 
-# Problem set from Project Euler
-# http://projecteuler.net
-# Problem 3
+Problem set from Project Euler
+http://projecteuler.net
+Problem 3
 
-# @author Russ Taylor <russ@russt.me>
-# @version 2011-06-12
+@author Russ Taylor <russ@russt.me>
+@version 2011-06-12
+"""
 
 import math
 
@@ -15,23 +17,23 @@ factors = []
 termcalc = 11
 
 while termcalc < (math.ceil(math.sqrt(number))):
-    
+
     isPrime = True
-    
+
     termcalcSqrt = math.sqrt(termcalc)
-    
+
     for prime in primes:
         if prime > termcalcSqrt:
             break
         if termcalc % prime == 0:
             isPrime = False
             break
-        
+
     if isPrime == True:
         primes.append(termcalc)
         if number % termcalc == 0:
             factors.append(termcalc)
 
     termcalc += 2
-	
+
 print 'factors:', factors

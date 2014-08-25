@@ -1,11 +1,13 @@
-# Gets the largest palindrome product of two three-digit numbers
+"""
+Gets the largest palindrome product of two three-digit numbers
 
-# Problem set from Project Euler
-# http://projecteuler.net
-# Problem 4
+Problem set from Project Euler
+http://projecteuler.net
+Problem 4
 
-# @author Russ Taylor <russ@russt.me>
-# @version 2013-04-28
+@author Russ Taylor <russ@russt.me>
+@version 2013-04-28
+"""
 
 import array
 import itertools

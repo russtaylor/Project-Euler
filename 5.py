@@ -1,11 +1,13 @@
-# Gets the smallest number evenly divisible by all numbers from 1-20
+"""
+Gets the smallest number evenly divisible by all numbers from 1-20
 
-# Problem set from Project Euler
-# http://projecteuler.net
-# Problem 5
+Problem set from Project Euler
+http://projecteuler.net
+Problem 5
 
-# @author Russ Taylor <russ@russt.me>
-# @version 2013-04-29
+@author Russ Taylor <russ@russt.me>
+@version 2013-04-29
+"""
 
 currentNumber = 2520
 foundNumber = False
