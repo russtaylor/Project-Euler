@@ -37,4 +37,8 @@ def getAbundantBelow(integer):
       abundantNumbers.append(i)
   return abundantNumbers
 
+def isSumOfAbundant(integer, abundantList):
+  for i in abundantList:
+    
+
 print(getAbundantBelow(28123))
