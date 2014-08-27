@@ -15,6 +15,9 @@ import math
 from enum import Enum
 Abundance = Enum("Abundance", "deficient perfect abundant")
 
+primes = [2,3,5,7]
+beginCalc = 11
+
 def calculateDivisors(integer):
   divisors = []
   for i in range(1, math.floor(integer / 2 + 1)):
@@ -39,6 +42,8 @@ def getAbundantBelow(integer):
 
 def isSumOfAbundant(integer, abundantList):
   for i in abundantList:
-    
 
-print(getAbundantBelow(28123))
+
+print(calculateAbundance(16))
+
+# print(getAbundantBelow(28123))
