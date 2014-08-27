@@ -12,7 +12,7 @@ Problem 25
 first = 1
 second = 1
 
-count = 2
+count = 3
 
 while True:
   term = first + second
