@@ -10,20 +10,39 @@ Problem 23
 @version 2014-08-22
 """
 
-import math
+from math import sqrt, ceil
+import numpy
 
 from enum import Enum
 Abundance = Enum("Abundance", "deficient perfect abundant")
 
-primes = [2,3,5,7]
-beginCalc = 11
+class PrimeUtils:
+  """
+  A simple class containing some basic functionality for calculations around
+  prime numbers.
+  """
 
-def calculateDivisors(integer):
-  divisors = []
-  for i in range(1, math.floor(integer / 2 + 1)):
-    if integer % i == 0:
-      divisors.append(i)
-  return divisors
+  primes = []
+
+  def calcPrimesTo(self, n):
+      """ Input n>=6, Returns a array of primes, 2 <= p < n """
+      sieve = numpy.ones(n / 3 + (n % 6 == 2), dtype=numpy.bool)
+      for i in range(1, ceil(int(n ** 0.5) / 3)):
+        if sieve[i]:
+          k = 3 * i + 1 | 1
+          sieve[k * k / 3 :: 2 * k] = False
+          sieve[k * (k - 2 * (i & 1) + 4 ) / 3 :: 2 * k] = False
+      self.primes = numpy.r_[2,3,((3*numpy.nonzero(sieve)[0][1:]+1)|1)].tolist()
+
+  def calculateDivisors(self, integer):
+    divisors = []
+    upperBound = ceil(sqrt(integer))
+    self.calcPrimesTo(upperBound)
+    for i in self.primes:
+      if integer % i == 0:
+        divisors.append(i)
+        divisors.append(int(integer / i))
+    return divisors
 
 def calculateAbundance(integer):
   divisorSum = sum(calculateDivisors(integer))
@@ -42,8 +61,9 @@ def getAbundantBelow(integer):
 
 def isSumOfAbundant(integer, abundantList):
   for i in abundantList:
+    return
 
-
-print(calculateAbundance(16))
+primeutils = PrimeUtils()
+print(primeutils.calculateDivisors(16))
 
 # print(getAbundantBelow(28123))
