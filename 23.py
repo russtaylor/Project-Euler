@@ -10,23 +10,12 @@ Problem 23
 @version 2014-08-22
 """
 
-from enum import Enum
 from primeutils import PrimeUtils
 
-Abundance = Enum("Abundance", "deficient perfect abundant")
-
-def calculateAbundance(self, integer):
-  divisorSum = sum(self.calculateDivisors(integer))
-  if divisorSum > integer:
-    return Abundance.abundant
-  elif divisorSum < integer:
-    return Abundance.deficient
-  return Abundance.perfect
-
-def getAbundantBelow(integer):
+def getAbundantBelow(integer, primeutils):
   abundantNumbers = []
   for i in range(1, integer + 1):
-    if calculateAbundance(i) == Abundance.abundant:
+    if primeutils.calculateAbundance(i) == 1:
       abundantNumbers.append(i)
   return abundantNumbers
 
@@ -35,6 +24,5 @@ def isSumOfAbundant(integer, abundantList):
     return
 
 primeutils = PrimeUtils()
-print(primeutils.calculateDivisors(24))
 
-# print(getAbundantBelow(28123))
+print(getAbundantBelow(28123, primeutils))

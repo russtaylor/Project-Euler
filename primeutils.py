@@ -22,6 +22,14 @@ class PrimeUtils:
         sieve[k * (k - 2 * (i & 1) + 4 ) / 3 :: 2 * k] = False
     self.primes = numpy.r_[2,3,((3*numpy.nonzero(sieve)[0][1:]+1)|1)].tolist()
 
+  def calculateAbundance(self, integer):
+    divisorSum = sum(self.calculateDivisors(integer))
+    if divisorSum > integer:
+      return 1
+    elif divisorSum < integer:
+      return -1
+    return 0
+
   def calculateDivisors(self, n):
     """
     Returns a list of the proper divisors of 'n', excepting 'n' itself.
