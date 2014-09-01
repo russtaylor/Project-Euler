@@ -9,11 +9,16 @@ class PrimeUtils:
 
   primes = []
 
+  def __init__(self, maxPrime = 1000):
+    self.calcPrimesTo(maxPrime)
+
   def calcPrimesTo(self, n):
     """
     Sets the class variable 'primes' to the list of primes up to the specified
     'n', where 'n' is >= 6.
     """
+    if self.primes and self.primes[-1] >= n:
+      return
     sieve = numpy.ones(n / 3 + (n % 6 == 2), dtype=numpy.bool)
     for i in range(1, ceil(int(n ** 0.5) / 3)):
       if sieve[i]:
@@ -29,6 +34,8 @@ class PrimeUtils:
     elif divisorSum < integer:
       return -1
     return 0
+
+
 
   def calculateDivisors(self, n):
     """
