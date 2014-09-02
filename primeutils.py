@@ -28,30 +28,37 @@ class PrimeUtils:
     self.primes = numpy.r_[2,3,((3*numpy.nonzero(sieve)[0][1:]+1)|1)].tolist()
 
   def calculateAbundance(self, integer):
-    divisorSum = sum(self.calculateDivisors(integer))
+    divisorSum = sum(self.calculateDivisors(integer)) - integer
     if divisorSum > integer:
       return 1
     elif divisorSum < integer:
       return -1
     return 0
 
-
-
-  def calculateDivisors(self, n):
+  def calculateFactors(self, n):
     """
-    Returns a list of the proper divisors of 'n', excepting 'n' itself.
+    Returns a list of the prime factors of 'n', paired with the multiplicity of
+    each.
     """
-    divisors = [1]
     upperBound = ceil(sqrt(n))
     self.calcPrimesTo(upperBound)
     for prime in self.primes:
       if prime > upperBound:
         break
       if n % prime == 0:
-        divisors.append(prime)
-        inverse = int(n / prime)
-        divisors.append(inverse)
-        for multiple in range(2,inverse):
-          if n % (prime * multiple) == 0:
-            divisors.append(multiple)
+        multiplicity = 1
+        while n % (prime ** (multiplicity + 1)) == 0:
+          multiplicity += 1
+        yield prime, multiplicity
+
+  def calculateDivisors(self, n):
+    """
+    Returns a list of the proper divisors of 'n'.
+    """
+    divisors = [1, n]
+    factors = self.calculateFactors(n)
+    for factor in factors:
+      for multiple in range(1,factor[1] + 1):
+        divisors.append(factor[0]**multiple)
+    print(n, sorted(divisors))
     return sorted(list(set(divisors)))
