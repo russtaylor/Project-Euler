@@ -25,4 +25,4 @@ def isSumOfAbundant(integer, abundantList):
 
 primeutils = PrimeUtils(28123)
 
-print(getAbundantBelow(100, primeutils))
+print(getAbundantBelow(28123, primeutils))

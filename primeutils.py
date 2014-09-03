@@ -58,7 +58,9 @@ class PrimeUtils:
     divisors = [1, n]
     factors = self.calculateFactors(n)
     for factor in factors:
+      divisors.append(int(n / factor[0]))
       for multiple in range(1,factor[1] + 1):
-        divisors.append(factor[0]**multiple)
-    print(n, sorted(divisors))
-    return sorted(list(set(divisors)))
+        exponent = factor[0]**multiple
+        divisors.append(int(n/exponent))
+        divisors.append(exponent)
+    return sorted(set(divisors))
