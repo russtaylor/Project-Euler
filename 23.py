@@ -19,10 +19,22 @@ def getAbundantBelow(integer, primeutils):
       abundantNumbers.append(i)
   return abundantNumbers
 
-def isSumOfAbundant(integer, abundantList):
+def abundantSums(limit, abundantList):
+  abundantSumList = [False] * (limit + 1)
   for i in abundantList:
-    return
+    for j in abundantList:
+      if(i + j <= limit):
+        abundantSumList[i + j] = True
+      else:
+        break
+  return abundantSumList
 
-primeutils = PrimeUtils(28123)
+primeutils = PrimeUtils(20162)
+abundantList = getAbundantBelow(20162, primeutils)
+abundantSumList = abundantSums(20162, abundantList)
+sum = 0
+for index, abundant in enumerate(abundantSumList):
+  if not abundant:
+    sum += index
 
-print(getAbundantBelow(28123, primeutils))
+print(sum)

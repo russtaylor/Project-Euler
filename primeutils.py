@@ -27,13 +27,23 @@ class PrimeUtils:
         sieve[k * (k - 2 * (i & 1) + 4 ) / 3 :: 2 * k] = False
     self.primes = numpy.r_[2,3,((3*numpy.nonzero(sieve)[0][1:]+1)|1)].tolist()
 
-  def calculateAbundance(self, integer):
-    divisorSum = sum(self.calculateDivisors(integer)) - integer
-    if divisorSum > integer:
+  def calculateAbundance(self, n):
+    divisorSum = self.properDivisorsSum(n)
+    if divisorSum > n:
       return 1
-    elif divisorSum < integer:
+    elif divisorSum < n:
       return -1
     return 0
+
+  def properDivisorsSum(self, n):
+    divisorSum = 1
+    upperBound = sqrt(n)
+    for i in range(2, int(upperBound) + 1):
+      if n % i == 0:
+        divisorSum += i + n / i
+    if upperBound == int(upperBound):
+      divisorSum -= upperBound
+    return divisorSum
 
   def calculateFactors(self, n):
     """
@@ -50,17 +60,3 @@ class PrimeUtils:
         while n % (prime ** (multiplicity + 1)) == 0:
           multiplicity += 1
         yield prime, multiplicity
-
-  def calculateDivisors(self, n):
-    """
-    Returns a list of the proper divisors of 'n'.
-    """
-    divisors = [1, n]
-    factors = self.calculateFactors(n)
-    for factor in factors:
-      divisors.append(int(n / factor[0]))
-      for multiple in range(1,factor[1] + 1):
-        exponent = factor[0]**multiple
-        divisors.append(int(n/exponent))
-        divisors.append(exponent)
-    return sorted(set(divisors))
